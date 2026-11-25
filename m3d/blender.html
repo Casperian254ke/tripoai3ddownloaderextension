@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blender model export · 3D Model Catcher</title>
+  <style>
+    :root{color-scheme:dark;font:15px system-ui,sans-serif;background:#11131a;color:#f4f4f7}body{max-width:760px;margin:48px auto;padding:0 20px}h1{font-size:25px}.card{background:#1b1e28;border:1px solid #343847;border-radius:14px;padding:20px;margin:16px 0}.muted{color:#b0b4c3;line-height:1.55}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}button{background:#7059f6;color:white;border:0;border-radius:8px;padding:10px 14px;font:inherit;font-weight:600;cursor:pointer}button.secondary{background:#303443}button:disabled{opacity:.55;cursor:wait}#status{white-space:pre-wrap}.hint{font-size:13px;color:#aeb2c1}a{color:#b9adff}
+  </style>
+</head>
+<body>
+  <h1>Prepare model for Blender</h1>
+  <p class="muted">Convert GLB/glTF geometry to OBJ locally, or download the original when Blender can import it. OBJ conversion keeps mesh geometry and basic material colors; the original GLB/glTF keeps full PBR materials and textures.</p>
+  <section class="card">
+    <strong id="filename">Loading model…</strong>
+    <p class="hint" id="format"></p>
+    <div class="row"><button id="original" class="secondary" disabled>Download original</button><button id="convert" disabled>Convert to Blender OBJ</button></div>
+    <p id="status" class="hint">Reading model details…</p>
+  </section>
+  <script src="blender.js"></script>
+</body>
+</html>

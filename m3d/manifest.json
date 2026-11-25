@@ -1,0 +1,103 @@
+﻿{
+    "manifest_version":  3,
+    "name":  "3D Model Catcher",
+    "version":  "1.1.0",
+    "description":  "Detects 3D model files (GLB, glTF, FBX, OBJ, STL, USDZ...) on any page and makes them easy to download.",
+    "permissions":  [
+                        "webRequest",
+                        "downloads",
+                        "storage",
+                        "activeTab",
+                        "scripting",
+                        "cookies"
+                    ],
+    "host_permissions":  [
+                             "\u003call_urls\u003e",
+                             "https://www.meshy.ai/*",
+                             "https://meshy.ai/*",
+                             "https://assets.meshy.ai/*",
+                             "https://api.meshy.ai/*",
+                             "https://studio.tripo3d.ai/*",
+                             "https://api.tripo3d.ai/*",
+                             "https://meshygrab.vercel.app/*",
+                             "https://meshy-grab-pro-prod.onrender.com/*"
+                         ],
+    "background":  {
+                       "service_worker":  "background.js"
+                   },
+    "action":  {
+                   "default_popup":  "popup.html",
+                   "default_icon":  {
+                                        "16":  "icons/16.png",
+                                        "32":  "icons/32.png",
+                                        "48":  "icons/48.png",
+                                        "128":  "icons/128.png",
+                                        "64":  "icon64.plasmo.8bb5e6e0.png"
+                                    }
+               },
+    "options_ui":  {
+                       "page":  "options.html",
+                       "open_in_tab":  true
+                   },
+    "content_scripts":  [
+                            {
+                                "matches":  [
+                                                "\u003call_urls\u003e"
+                                            ],
+                                "js":  [
+                                           "content.js"
+                                       ],
+                                "run_at":  "document_idle",
+                                "all_frames":  true
+                            },
+                            {
+                                "run_at":  "document_start",
+                                "matches":  [
+                                                "https://www.meshy.ai/*",
+                                                "https://meshy.ai/*"
+                                            ],
+                                "js":  [
+                                           "meshy-bridge.c2858880.js"
+                                       ]
+                            },
+                            {
+                                "run_at":  "document_idle",
+                                "matches":  [
+                                                "https://www.meshy.ai/*",
+                                                "https://meshy.ai/*"
+                                            ],
+                                "js":  [
+                                           "community-ui.e4f6e8b3.js"
+                                       ]
+                            },
+                            {
+                                "run_at":  "document_start",
+                                "matches":  [
+                                                "https://www.meshy.ai/*",
+                                                "https://meshy.ai/*"
+                                            ],
+                                "js":  [
+                                           "community-bridge.4738728f.js"
+                                       ]
+                            },
+                            {
+                                "run_at":  "document_start",
+                                "matches":  [
+                                                "https://studio.tripo3d.ai/*"
+                                            ],
+                                "js":  [
+                                           "tripo-bridge.22679468.js"
+                                       ]
+                            }
+                        ],
+    "icons":  {
+                  "16":  "icons/16.png",
+                  "32":  "icons/32.png",
+                  "48":  "icons/48.png",
+                  "128":  "icons/128.png",
+                  "64":  "icon64.plasmo.8bb5e6e0.png"
+              },
+    "content_security_policy":  {
+                                    "extension_pages":  "script-src \u0027self\u0027 \u0027wasm-unsafe-eval\u0027; object-src \u0027self\u0027;"
+                                }
+}

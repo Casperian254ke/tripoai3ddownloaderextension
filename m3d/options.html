@@ -1,0 +1,15 @@
+<!doctype html><html><head><meta charset="utf-8"><title>3D Model Catcher – Settings</title>
+<style>:root{color-scheme:light dark}body{font:14px system-ui;max-width:640px;margin:30px auto;padding:0 16px}label{display:block;margin:6px 0}
+input[type=text]{width:100%;padding:6px}.f{display:inline-block;width:110px}fieldset{margin:16px 0;border-radius:8px}small{opacity:.7}</style></head><body>
+<h1>3D Model Catcher – Settings</h1>
+<fieldset><legend>Formats to detect</legend><div id="formats"></div></fieldset>
+<fieldset><legend>Behaviour</legend>
+<label><input type="checkbox" id="floatingButton"> Show floating button on pages with models</label>
+<label><input type="checkbox" id="sniffMagic"> Check file signature (magic bytes) on ambiguous requests</label>
+<label><input type="checkbox" id="keepHistory"> Remember downloaded models (local only)</label>
+<label>Minimum confidence score (0-120): <input type="number" id="minScore" min="0" max="120"></label></fieldset>
+<fieldset><legend>Download manager</legend>
+<label>Custom protocol / URL template <input type="text" id="managerTemplate" placeholder="myscheme://add?url={url}">
+<small>{url} = URL-encoded, {rawurl} = raw. Leave empty to just copy the URL (IDM / FDM / JDownloader can pick it up from the clipboard).</small></label></fieldset>
+<button id="save">Save</button> <span id="ok"></span>
+<script src="shared.js"></script><script src="options.js"></script></body></html>

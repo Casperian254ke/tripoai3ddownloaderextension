@@ -1,0 +1,7 @@
+﻿<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="popup.css"></head><body>
+<header><h1>3D Model Catcher</h1><span><button id="meshkit" class="b" title="Open MeshKit tools">MeshKit</button> <button id="rescan" class="b p" title="Rescan this page for 3D models">âŸ³ Rescan</button> <a id="settings" title="Settings">âš™</a></span></header>
+<nav><button class="tab active" data-t="models">Models <span id="count">0</span></button><button class="tab" data-t="inspector">Network Inspector</button><button class="tab" data-t="history">History</button></nav>
+<main id="models"></main><main id="inspector" hidden></main><main id="history" hidden></main>
+<div id="toast"></div>
+<script src="shared.js"></script><script type="module" src="vendor/model-viewer.min.js"></script><script src="popup.js"></script></body></html>
+
